@@ -469,50 +469,38 @@ function play(guild, song) {
     }).then(message =>{message.delete(5000)})
 }
  
-const developers = ["321121048403771393","427855446225846272"]
+const devs = ["321121048403771393"];
+const adminprefix = ["a-"];
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!developers.includes(message.author.id)) return;
-      
-  if (message.content.startsWith(-sp)) {
+      if (!devs.includes(message.author.id)) return;
+ 
+  if (message.content.startsWith(adminprefix + 'ply')) {
     client.user.setGame(argresult);
       message.channel.send(`**✅   ${argresult}**`)
-  } else 
-     if (message.content === (-leave)) {
-    message.guild.leave();        
-  } else  
-  if (message.content.startsWith(-sw)) {
+  } else
+     if (message.content === (adminprefix + "leave")) {
+    message.guild.leave();
+  } else
+  if (message.content.startsWith(adminprefix + 'wt')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
       message.channel.send(`**✅   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(-sl)) {
+  } else
+  if (message.content.startsWith(adminprefix + 'ls')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
       message.channel.send(`**✅   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(-st)) {
+  } else
+  if (message.content.startsWith(adminprefix + 'st')) {
     client.user.setGame(argresult, "https://www.twitch.tv/idk");
       message.channel.send(`**✅**`)
   }
-  if (message.content.startsWith(-setname)) {
+  if (message.content.startsWith(adminprefix + 'setname')) {
   client.user.setUsername(argresult).then
       message.channel.send(`Changing The Name To ..**${argresult}** `)
 } else
-if (message.content.startsWith(-setavatar)) {
+if (message.content.startsWith(adminprefix + 'setavatar')) {
   client.user.setAvatar(argresult);
     message.channel.send(`Changing The Avatar To :**${argresult}** `);
-}
-});
-
-client.on("message", async message => {
-if(message.content.startsWith("Mem")) {
-let args = message.content.split(" ").slice(1).join(" ")
-if(message.author.id != "490927770143031296") return;
-if(!args) return message.reply("._.");
-message.delete();
-var emb = new  Discord.RichEmbed()
-  .setColor('RANDOM')
-  .setDescription(args);
-message.channel.send(emb)
 }
 });
 client.login(process.env.BOT_TOKEN);
