@@ -48,14 +48,6 @@ client.on('ready', () => {
   console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
 });
 
-client.on('ready',async () => {
-let streaming = [`-help`, `Be The Best`];
-client.user.setActivity(streaming[Math.floor(Math.random() * streaming.length)], {type: 1, url: "https://twitch.tv/6xlez1"});
-setInterval(() => {
-client.user.setActivity(streaming[Math.floor(Math.random() * streaming.length)], {type: 1, url: "https://twitch.tv/6xlez1"});
-}, 5000);
-});
- 
 client.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
  
 client.on('reconnecting', () => console.log('I am reconnecting now!'));
@@ -481,7 +473,7 @@ client.on('message', message => {
   if (!message.content.startsWith(PREFIX)) return;
   var args = message.content.split(' ').slice(1);
   var argresult = args.join(' ');
-  if (message.author.id !== "ال ايدي حقتك") return;
+  if (message.author.id !== "321121048403771393") return;
  
 if (message.content.startsWith(PREFIX + 'setstream')) {
   client.user.setGame(argresult, "https://www.twitch.tv/darkknite55");
