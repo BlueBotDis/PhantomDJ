@@ -469,29 +469,31 @@ function play(guild, song) {
     }).then(message =>{message.delete(5000)})
 }
  
+});
+
 client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
   var argresult = args.join(' ');
-  if (message.author.id !== "321121048403771393") return;
+  if (message.author.id !== "427855446225846272") return;
 
-if (message.content.startsWith('${PREFIX}setgame')) {
+if (message.content.startsWith(prefix + 'setgame')) {
   client.user.setGame(argresult);
     message.channel.sendMessage(`Playing: **${argresult}`)
 } 
 
-if (message.content.startsWith('${PREFIX}setstream')) {
+if (message.content.startsWith(prefix + 'setstream')) {
   client.user.setGame(argresult, "https://www.twitch.tv/v5bz");
      console.log('test' + argresult);
     message.channel.sendMessage(`Streaming: **${argresult}`)
 } 
 
-if (message.content.startsWith('${PREFIX}setname')) {
+if (message.content.startsWith(prefix + 'setname')) {
   client.user.setUsername(argresult).then
       message.channel.sendMessage(`Username Changed To **${argresult}**`)
   return message.reply("You Can change the username 2 times per hour");
 } 
-if (message.content.startsWith('${PREFIX}setavatar')) {
+if (message.content.startsWith(prefix + 'setavatar')) {
   client.user.setAvatar(argresult);
    message.channel.sendMessage(`Avatar Changed Successfully To **${argresult}**`);
 }
